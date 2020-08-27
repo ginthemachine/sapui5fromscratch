@@ -2,8 +2,11 @@
 	<Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page id="page" title="hello">
-					<content></content>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<Button text="Hello" type="Critical" press="myFunction"/>
+						<Input type="Password"/>
+					</content>
 				</Page>
 			</pages>
 		</App>
