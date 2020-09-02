@@ -4,8 +4,57 @@
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-						<Button text="Hello" type="Critical" press="myFunction"/>
-						<Input type="Password"/>
+						<Table id="idOrdersTable">
+							<headerToolbar>
+								<OverflowToolbar>
+									<Title text="Orders"/>
+									<ToolbarSpacer/>
+									<SearchField width="20%"/>
+									<Button tooltip="Sort" icon="sap-icon://sort"/>
+									<Button tooltip="Group" icon="sap-icon://group-2"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column>
+									<Text text="Sales Order ID"/>
+								</Column>
+								<Column>
+									<Text text="Customer Name"/>
+								</Column>
+								<Column>
+									<Text text="Status"/>
+								</Column>
+								<Column>
+									<Text text="Gross Amount"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Navigation">
+									<cells>
+										<ObjectIdentifier title="1"/>
+										<Text text="Customer Name 1"/>
+										<ObjectStatus text="Completed" icon="sap-icon://status-completed" state="Success"/>
+										<ObjectNumber number="199" unit="USD"/>
+									</cells>
+								</ColumnListItem>
+								<ColumnListItem type="Navigation">
+									<cells>
+										<ObjectIdentifier title="2"/>
+										<Text text="Customer Name 2"/>
+										<ObjectStatus text="Error" icon="sap-icon://status-error" state="Error"/>
+										<ObjectNumber number="150" unit="USD"/>
+									</cells>
+								</ColumnListItem>
+								<ColumnListItem type="Navigation">
+									<cells>
+										<ObjectIdentifier title="3"/>
+										<Text text="Customer Name 3"/>
+										<ObjectStatus text="Completed" icon="sap-icon://status-completed" state="Success"/>
+										<ObjectNumber number="140" unit="USD"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
 					</content>
 				</Page>
 			</pages>
