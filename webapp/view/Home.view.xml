@@ -4,14 +4,14 @@
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-						<Table id="idOrdersTable">
+						<Table id="idOrdersTable" items="{/SalesOrderSet}">
 							<headerToolbar>
 								<OverflowToolbar>
-									<Title text="Orders"/>
+									<Title text="{/title}"/>
 									<ToolbarSpacer/>
-									<SearchField width="20%"/>
-									<Button tooltip="Sort" icon="sap-icon://sort"/>
-									<Button tooltip="Group" icon="sap-icon://group-2"/>
+									<SearchField width="20%" search="onSearch" value="{/title}"/>
+									<Button tooltip="Sort" icon="sap-icon://sort" press="onSort"/>
+									<Button tooltip="Group" icon="sap-icon://group-2" press="onGroup"/>
 								</OverflowToolbar>
 							</headerToolbar>
 							<columns>
@@ -31,26 +31,10 @@
 							<items>
 								<ColumnListItem type="Navigation">
 									<cells>
-										<ObjectIdentifier title="1"/>
-										<Text text="Customer Name 1"/>
-										<ObjectStatus text="Completed" icon="sap-icon://status-completed" state="Success"/>
-										<ObjectNumber number="199" unit="USD"/>
-									</cells>
-								</ColumnListItem>
-								<ColumnListItem type="Navigation">
-									<cells>
-										<ObjectIdentifier title="2"/>
-										<Text text="Customer Name 2"/>
-										<ObjectStatus text="Error" icon="sap-icon://status-error" state="Error"/>
-										<ObjectNumber number="150" unit="USD"/>
-									</cells>
-								</ColumnListItem>
-								<ColumnListItem type="Navigation">
-									<cells>
-										<ObjectIdentifier title="3"/>
-										<Text text="Customer Name 3"/>
-										<ObjectStatus text="Completed" icon="sap-icon://status-completed" state="Success"/>
-										<ObjectNumber number="140" unit="USD"/>
+										<ObjectIdentifier title="{SalesOrderID}"/>
+										<Text text="{CustomerName}"/>
+										<ObjectStatus text="{LifecycleStatusDescription}" icon="sap-icon://status-completed" state="{LifecycleStatus}"/>
+										<ObjectNumber number="{GrossAmount}" unit="{CurrencyCode}"/>
 									</cells>
 								</ColumnListItem>
 							</items>
