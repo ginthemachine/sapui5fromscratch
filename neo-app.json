@@ -36,6 +36,15 @@
         "entryPath": "/test-resources"
       },
       "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "SAP_Gateway",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "SAP Gateway ES5"
     }
   ],
   "sendWelcomeFileRedirect": true

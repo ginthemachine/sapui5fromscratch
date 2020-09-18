@@ -33,7 +33,7 @@
 									<cells>
 										<ObjectIdentifier title="{SalesOrderID}"/>
 										<Text text="{CustomerName}"/>
-										<ObjectStatus text="{LifecycleStatusDescription}" icon="sap-icon://status-completed" state="{LifecycleStatus}"/>
+										<ObjectStatus text="{LifecycleStatusDescription}" icon="sap-icon://status-completed" state="{ path: 'LifecycleStatus', formatter: '.formatter.formatStatus' }"/>
 										<ObjectNumber number="{GrossAmount}" unit="{CurrencyCode}"/>
 									</cells>
 								</ColumnListItem>
