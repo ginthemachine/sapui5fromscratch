@@ -4,10 +4,10 @@
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-						<Table id="idOrdersTable" items="{/SalesOrderSet}">
+						<Table id="idOrdersTable" items="{/SalesOrderSet}" growing="true" growingThreshold="25">
 							<headerToolbar>
 								<OverflowToolbar>
-									<Title text="{/title}"/>
+									<Title text="{i18n>tableTitle}"/>
 									<ToolbarSpacer/>
 									<SearchField width="20%" search="onSearch" value="{/title}"/>
 									<Button tooltip="Sort" icon="sap-icon://sort" press="onSort"/>
@@ -33,8 +33,11 @@
 									<cells>
 										<ObjectIdentifier title="{SalesOrderID}"/>
 										<Text text="{CustomerName}"/>
-										<ObjectStatus text="{LifecycleStatusDescription}" icon="{ path: 'LifecycleStatus', formatter: '.formatter.statusIndicator' }" state="{ path: 'LifecycleStatus', formatter: '.formatter.formatStatus' }"/>
-										<ObjectNumber number="{GrossAmount}" unit="{CurrencyCode}"/>
+										<ObjectStatus text="{LifecycleStatusDescription}" icon="{ path: 'LifecycleStatus', formatter: '.formatter.statusIndicator' }"
+											state="{ path: 'LifecycleStatus', formatter: '.formatter.formatStatus' }"/>
+										<ObjectNumber
+											number="{ parts: [{ path: 'GrossAmount' }, { path: 'CurrencyCode' }], type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }"
+											unit="{CurrencyCode}"/>
 									</cells>
 								</ColumnListItem>
 							</items>
