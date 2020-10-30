@@ -1,50 +1,44 @@
 <mvc:View controllerName="com.orders.ordersapp.controller.Home" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-	<Shell id="shell">
-		<App id="app">
-			<pages>
-				<Page id="page" title="{i18n>title}">
-					<content>
-						<Table id="idOrdersTable" items="{/SalesOrderSet}" growing="true" growingThreshold="25">
-							<headerToolbar>
-								<OverflowToolbar>
-									<Title text="{i18n>tableTitle}"/>
-									<ToolbarSpacer/>
-									<SearchField width="20%" search="onSearch" value="{/title}"/>
-									<Button tooltip="Sort" icon="sap-icon://sort" press="onSort"/>
-									<Button tooltip="Group" icon="sap-icon://group-2" press="onGroup"/>
-								</OverflowToolbar>
-							</headerToolbar>
-							<columns>
-								<Column>
-									<Text text="Sales Order ID"/>
-								</Column>
-								<Column>
-									<Text text="Customer Name"/>
-								</Column>
-								<Column>
-									<Text text="Status"/>
-								</Column>
-								<Column>
-									<Text text="Gross Amount"/>
-								</Column>
-							</columns>
-							<items>
-								<ColumnListItem type="Navigation">
-									<cells>
-										<ObjectIdentifier title="{SalesOrderID}"/>
-										<Text text="{CustomerName}"/>
-										<ObjectStatus text="{LifecycleStatusDescription}" icon="{ path: 'LifecycleStatus', formatter: '.formatter.statusIndicator' }"
-											state="{ path: 'LifecycleStatus', formatter: '.formatter.formatStatus' }"/>
-										<ObjectNumber
-											number="{ parts: [{ path: 'GrossAmount' }, { path: 'CurrencyCode' }], type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }"
-											unit="{CurrencyCode}"/>
-									</cells>
-								</ColumnListItem>
-							</items>
-						</Table>
-					</content>
-				</Page>
-			</pages>
-		</App>
-	</Shell>
+	<Page id="page" title="{i18n>title}">
+		<content>
+			<Table id="idOrdersTable" items="{/SalesOrderSet}" growing="true" growingThreshold="25">
+				<headerToolbar>
+					<OverflowToolbar>
+						<Title text="{i18n>tableTitle}"/>
+						<ToolbarSpacer/>
+						<SearchField width="20%" search="onSearch" value="{/title}"/>
+						<Button tooltip="Sort" icon="sap-icon://sort" press="onSort"/>
+						<Button tooltip="Group" icon="sap-icon://group-2" press="onGroup"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Sales Order ID"/>
+					</Column>
+					<Column>
+						<Text text="Customer Name"/>
+					</Column>
+					<Column>
+						<Text text="Status"/>
+					</Column>
+					<Column>
+						<Text text="Gross Amount"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press="onPressItem">
+						<cells>
+							<ObjectIdentifier title="{SalesOrderID}"/>
+							<Text text="{CustomerName}"/>
+							<ObjectStatus text="{LifecycleStatusDescription}" icon="{ path: 'LifecycleStatus', formatter: '.formatter.statusIndicator' }"
+								state="{ path: 'LifecycleStatus', formatter: '.formatter.formatStatus' }"/>
+							<ObjectNumber
+								number="{ parts: [{ path: 'GrossAmount' }, { path: 'CurrencyCode' }], type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }"
+								unit="{CurrencyCode}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
 </mvc:View>

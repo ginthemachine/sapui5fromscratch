@@ -5,8 +5,9 @@ sap.ui.define([
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
 	"sap/ui/core/Fragment",
-	"sap/ui/model/Sorter"
-], function (Controller, JSONModel, Formatter, Filter, FilterOperator, Fragment, Sorter) {
+	"sap/ui/model/Sorter",
+	"sap/ui/core/UIComponent"
+], function (Controller, JSONModel, Formatter, Filter, FilterOperator, Fragment, Sorter, UIComponent) {
 	"use strict";
 
 	return Controller.extend("com.orders.ordersapp.controller.Home", {
@@ -156,6 +157,15 @@ sap.ui.define([
 			var oBinding = oTable.getBinding("items");
 
 			oBinding.sort(aSorters);
+		},
+		
+		onPressItem: function(oEvent) {
+			var oRouter = UIComponent.getRouterFor(this);
+			var oItem = oEvent.getSource();
+			
+			oRouter.navTo("Detail", {
+				SalesOrderID: oItem.getBindingContext().getObject().SalesOrderID
+			});
 		}
 	
 

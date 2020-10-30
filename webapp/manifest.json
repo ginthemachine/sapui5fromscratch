@@ -42,10 +42,10 @@
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
-			"viewName": "com.orders.ordersapp.view.Home",
+			"viewName": "com.orders.ordersapp.view.App",
 			"type": "XML",
 			"async": true,
-			"id": "Home"
+			"id": "app"
 		},
 		"dependencies": {
 			"minUI5Version": "1.65.6",
@@ -78,11 +78,9 @@
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -94,26 +92,31 @@
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
-			"routes": [
-				{
-					"name": "RouteHome",
-					"pattern": "RouteHome",
-					"target": [
-						"TargetHome"
-					]
-				}
-			],
+			"routes": [{
+				"name": "Home",
+				"pattern": "",
+				"target": [
+					"TargetHome"
+				]
+			}, {
+				"name": "Detail",
+				"pattern": "details/{SalesOrderID}",
+				"target": [
+					"TargetDetails"
+				]
+			}],
 			"targets": {
 				"TargetHome": {
 					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewId": "Home",
 					"viewName": "Home"
 				},
-				"Details": {
+				"TargetDetails": {
 					"viewType": "XML",
 					"viewName": "Details"
+				},
+				"App": {
+					"viewType": "XML",
+					"viewName": "App"
 				}
 			}
 		}
