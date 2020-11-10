@@ -1,6 +1,19 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.orders.ordersapp.controller.Details"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="Title" showNavButton="true" navButtonPress="onNavBack">
-		<content></content>
+		<content>
+			<ObjectHeader title="{SalesOrderID}" intro="{CustomerName}"
+				number="{ parts:[{path:'GrossAmount'},{path:'CurrencyCode'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }"
+				numberUnit="{CurrencyCode}" class="sapUiResponsivePadding--header">
+				<statuses>
+					<ObjectStatus text="{LifecycleStatusDescription}" state="{ path: 'LifecycleStatus', formatter: '.formatter.formatStatus'}"/>
+				</statuses>
+				<ObjectAttribute text="{path: 'CreatedAt', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}"/>
+				<ObjectAttribute text="{Note}"/>
+			</ObjectHeader>
+			<List items="{ToLineItems}" headerText="Products">
+				<DisplayListItem label="{ProductID}" value="{Quantity}"/>
+			</List>
+		</content>
 	</Page>
 </mvc:View>

@@ -1,11 +1,13 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/UIComponent",
-	"sap/ui/core/routing/History"
-], function (Controller, UIComponent, History) {
+	"sap/ui/core/routing/History",
+	"com/orders/ordersapp/model/formatter"
+], function (Controller, UIComponent, History, Formatter) {
 	"use strict";
 
 	return Controller.extend("com.orders.ordersapp.controller.Details", {
+		formatter: Formatter,
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -14,7 +16,7 @@ sap.ui.define([
 		 */
 		onInit: function () {
 			var oRouter = UIComponent.getRouterFor(this);
-			
+
 			oRouter.getRoute("Detail").attachPatternMatched(this.onRouteMatched, this);
 		},
 
@@ -29,12 +31,15 @@ sap.ui.define([
 				oRouter.navTo("Home", {}, true);
 			}
 		},
-		
-		onRouteMatched: function(oEvent) {
+
+		onRouteMatched: function (oEvent) {
 			var sId = oEvent.getParameter("arguments").SalesOrderID;
-			
-			alert(sId);
-			
+
+			var sPath = this.getView().getModel().createKey("SalesOrderSet", {
+				SalesOrderID: sId
+			});
+
+			this.getView().bindElement("/" + sPath);
 		}
 
 		/**
