@@ -78,9 +78,11 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -92,19 +94,22 @@
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
-			"routes": [{
-				"name": "Home",
-				"pattern": "",
-				"target": [
-					"TargetHome"
-				]
-			}, {
-				"name": "Detail",
-				"pattern": "details/{SalesOrderID}",
-				"target": [
-					"TargetDetails"
-				]
-			}],
+			"routes": [
+				{
+					"name": "Home",
+					"pattern": "",
+					"target": [
+						"TargetHome"
+					]
+				},
+				{
+					"name": "Detail",
+					"pattern": "details/{SalesOrderID}",
+					"target": [
+						"TargetDetails"
+					]
+				}
+			],
 			"targets": {
 				"TargetHome": {
 					"viewType": "XML",
@@ -120,5 +125,9 @@
 				}
 			}
 		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
 	}
 }

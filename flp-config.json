@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "com.orders.ordersapp.ordersapp",
+        "description": "Sales Order App",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#ordersapp-Display",
+        "navigationComponentName": "com.orders.ordersapp",
+        "intentSemanticObject": "ordersapp",
+        "intentAction": "Display",
+        "html5ApplicationName": "ordersapp",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "bf4c195e-f1c8-482a-8af4-8cbf61b42cc1"
+        ],
+        "contentPackages": [
+            "782f5548-970c-4347-9cf1-1ffd2cebdaa9"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Sales Order App",
+        "subtitle": "My Orders",
+        "searchKeywords": "Sales Order App,My Orders",
+        "displayIconUrl": "sap-icon://approvals",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

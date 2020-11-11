@@ -7,22 +7,22 @@
 						<Title text="{i18n>tableTitle}"/>
 						<ToolbarSpacer/>
 						<SearchField width="20%" search="onSearch" value="{/title}"/>
-						<Button tooltip="Sort" icon="sap-icon://sort" press="onSort"/>
-						<Button tooltip="Group" icon="sap-icon://group-2" press="onGroup"/>
+						<Button tooltip="{i18n>sortTooltip}" icon="sap-icon://sort" press="onSort"/>
+						<Button tooltip="{i18n>groupTooltip}" icon="sap-icon://group-2" press="onGroup"/>
 					</OverflowToolbar>
 				</headerToolbar>
 				<columns>
-					<Column>
-						<Text text="Sales Order ID"/>
+					<Column width="12em">
+						<Text text="{i18n>columnSalesOrderId}"/>
 					</Column>
-					<Column>
-						<Text text="Customer Name"/>
+					<Column minScreenWidth="Small" demandPopin="true">
+						<Text text="{i18n>columnCustomerName}"/>
 					</Column>
-					<Column>
-						<Text text="Status"/>
+					<Column minScreenWidth="Small" demandPopin="true" width="12em">
+						<Text text="{i18n>columnStatus}"/>
 					</Column>
-					<Column>
-						<Text text="Gross Amount"/>
+					<Column hAlign="End" minScreenWidth="Tablet" demandPopin="true" width="12em">
+						<Text text="{i18n>columnGrossAmount}"/>
 					</Column>
 				</columns>
 				<items>

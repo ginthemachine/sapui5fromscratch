@@ -1,10 +1,22 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.orders.ordersapp.controller.Details"
 	xmlns:html="http://www.w3.org/1999/xhtml">
-	<Page title="Title" showNavButton="true" navButtonPress="onNavBack">
+	<!-- 
+		@version 1.58 below
+		title="{ parts: [ 
+		{ path: 'i18n>detailsTitle' }, 
+		{ path: 'SalesOrderID' } ], 
+		formatter:'jQuery.sap.formatMessage' }"
+	-->
+	<Page core:require="{ formatMessage: 'sap/base/strings/formatMessage' }"
+		title="{ parts: [ 
+		{ path: 'i18n>detailsTitle' }, 
+		{ path: 'SalesOrderID' } ], 
+		formatter: 'formatMessage' }" showNavButton="true"
+		navButtonPress="onNavBack">
 		<content>
 			<ObjectHeader title="{SalesOrderID}" intro="{CustomerName}"
 				number="{ parts:[{path:'GrossAmount'},{path:'CurrencyCode'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }"
-				numberUnit="{CurrencyCode}" class="sapUiResponsivePadding--header">
+				numberUnit="{CurrencyCode}" class="sapUiResponsivePadding--header" responsive="true" fullScreenOptimized="true">
 				<statuses>
 					<ObjectStatus text="{LifecycleStatusDescription}" state="{ path: 'LifecycleStatus', formatter: '.formatter.formatStatus'}"/>
 				</statuses>
